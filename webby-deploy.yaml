@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: webby
-        image: undeadops/webby:master-8824dee
+        image: undeadops/bar:master-8824dee
         ports:
         - containerPort: 5000
