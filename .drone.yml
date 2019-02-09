@@ -1,16 +1,17 @@
 kind: pipeline
-name: default
 
 steps:
-- name: test
-  image: mysql:5
+- name: build
+  image: golang
   commands:
-  - sleep 15
-  - mysql -u root -h database --execute="SELECT VERSION();"
-
-services:
-- name: database
-  image: mysql:5
-  environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-    MYSQL_DATABASE: test
+    - go build
+    
+- name: publish 
+  image: plugins/docker
+  settings:
+    repo: undeadops/bar
+    auto_tag: true
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
