@@ -1,11 +1,17 @@
-pipeline:
-  build:
-    image: golang
-    commands:
-      - go build
-  publish:
-    image: plugins/docker
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: golang
+  commands:
+    - go build
+  
+- name: publish
+  image: plugins/docker
+  settings:
     repo: undeadops/bar
+    auto_tag: true
     username:
       from_secret: docker_username
     password:
