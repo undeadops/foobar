@@ -5,14 +5,13 @@ steps:
   image: golang
   commands:
     - go build
-- name: publish 
-  image: plugins/docker
-  settings:
-    repo: undeadops/bar
-    auto_tag: true
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
 
-services:
+# - name: publish 
+#   image: plugins/docker
+#   settings:
+#     repo: undeadops/bar
+#     auto_tag: true
+#     username:
+#       from_secret: docker_username
+#     password:
+#       from_secret: docker_password
