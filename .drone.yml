@@ -17,3 +17,9 @@ steps:
     password:
       from_secret: docker_password
 
+services:
+- name: database
+  image: mysql:5
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    MYSQL_DATABASE: test
