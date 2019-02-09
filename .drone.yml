@@ -7,7 +7,7 @@ steps:
   commands:
     - go build
   
-- name: docker 
+- name: publish 
   image: plugins/docker
   settings:
     repo: undeadops/bar
